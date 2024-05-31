@@ -1,0 +1,14 @@
+<div class="container">
+  <div *ngFor="let todo of completedTodos" class="card mt-3 bg-success">
+    <div class="card-body">
+      <h5 class="card-title">{{ todo.title }}</h5>
+      <p class="card-text">Author: {{ getUserById(todo.userId) }}</p>
+      <input
+        type="checkbox"
+        [(ngModel)]="todo.completed"
+        (change)="onCheckboxChange(todo)"
+        checked
+      />
+    </div>
+  </div>
+</div>

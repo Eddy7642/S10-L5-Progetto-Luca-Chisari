@@ -1,0 +1,22 @@
+<div class="container">
+  <div *ngFor="let user of users" class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ user.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Todos:</h6>
+      <div
+        *ngFor="let todo of getUserTodos(user.id)"
+        class="card mt-2"
+        [ngClass]="{ 'bg-success': todo.completed }"
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{ todo.completed }}</h5>
+          <input
+            type="checkbox"
+            [(ngModel)]="todo.completed"
+            (change)="onCheckboxChange(todo)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
