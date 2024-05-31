@@ -1,6 +1,15 @@
 <div class="container">
+  <div class="form-group mt-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search by author"
+      [(ngModel)]="searchTerm"
+      (input)="onSearchChange()"
+    />
+  </div>
   <div
-    *ngFor="let todo of todos"
+    *ngFor="let todo of filteredTodos"
     class="card mt-3"
     [ngClass]="{ 'bg-success': todo.completed }"
   >

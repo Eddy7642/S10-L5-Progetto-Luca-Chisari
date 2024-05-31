@@ -9,11 +9,14 @@ import { UserService } from '../../services/user.service';
 })
 export class TodoListComponent implements OnInit {
   todos: any[] = [];
+  filteredTodos: any[] = [];
+  searchTerm: string = '';
 
   constructor(private todoService: TodoService, private userService: UserService) {}
 
   ngOnInit(): void {
     this.todos = this.todoService.getTodos();
+    this.filteredTodos = this.todos;
   }
 
   getUserById(id: number) {
@@ -22,5 +25,16 @@ export class TodoListComponent implements OnInit {
 
   onCheckboxChange(todo: any) {
     this.todoService.updateTodoStatus(todo.id, todo.completed);
+  }
+
+  onSearchChange(): void {
+    if (this.searchTerm) {
+      this.filteredTodos = this.todos.filter(todo => {
+        const user = this.getUserById(todo.userId);
+        return user && `${user.firstName} ${user.lastName}`.toLowerCase().includes(this.searchTerm.toLowerCase());
+      });
+    } else {
+      this.filteredTodos = this.todos;
+    }
   }
 }
