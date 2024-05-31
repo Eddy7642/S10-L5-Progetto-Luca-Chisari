@@ -17,7 +17,7 @@ export class TodoListComponent implements OnInit {
   }
 
   getUserById(id: number) {
-    return this.userService.getUserById(id)?.firstName;
+    return this.userService.getUserById(id);
   }
 
   onCheckboxChange(todo: any) {

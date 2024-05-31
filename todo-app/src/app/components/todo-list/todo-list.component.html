@@ -5,8 +5,17 @@
     [ngClass]="{ 'bg-success': todo.completed }"
   >
     <div class="card-body">
-      <h5 class="card-title">{{ todo.title }}</h5>
-      <p class="card-text">Author: {{ getUserById(todo.userId) }}</p>
+      <h5 class="card-title">{{ todo.todo }}</h5>
+      <p class="card-text">
+        <img
+          [src]="getUserById(todo.userId)?.image"
+          alt="Profile Picture"
+          class="img-thumbnail"
+          width="50"
+        />
+        Author: {{ getUserById(todo.userId)?.firstName }}
+        {{ getUserById(todo.userId)?.lastName }}
+      </p>
       <input
         type="checkbox"
         [(ngModel)]="todo.completed"

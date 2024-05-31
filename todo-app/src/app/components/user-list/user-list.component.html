@@ -1,7 +1,15 @@
 <div class="container">
   <div *ngFor="let user of users" class="card mt-3">
     <div class="card-body">
-      <h5 class="card-title">{{ user.name }}</h5>
+      <h5 class="card-title">
+        <img
+          [src]="user.image"
+          alt="Profile Picture"
+          class="img-thumbnail"
+          width="50"
+        />
+        {{ user.firstName }} {{ user.lastName }}
+      </h5>
       <h6 class="card-subtitle mb-2 text-muted">Todos:</h6>
       <div
         *ngFor="let todo of getUserTodos(user.id)"
@@ -9,7 +17,7 @@
         [ngClass]="{ 'bg-success': todo.completed }"
       >
         <div class="card-body">
-          <h5 class="card-title">{{ todo.completed }}</h5>
+          <h5 class="card-title">{{ todo.todo }}</h5>
           <input
             type="checkbox"
             [(ngModel)]="todo.completed"
