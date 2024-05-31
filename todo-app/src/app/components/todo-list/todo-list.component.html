@@ -3,7 +3,7 @@
     <input
       type="text"
       class="form-control"
-      placeholder="Search by author"
+      placeholder="Cerca per autore"
       [(ngModel)]="searchTerm"
       (input)="onSearchChange()"
     />
@@ -20,7 +20,6 @@
           [src]="getUserById(todo.userId)?.image"
           alt="Profile Picture"
           class="img-thumbnail"
-          width="50"
         />
         Author: {{ getUserById(todo.userId)?.firstName }}
         {{ getUserById(todo.userId)?.lastName }}

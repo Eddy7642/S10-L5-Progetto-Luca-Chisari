@@ -2,12 +2,7 @@
   <div *ngFor="let user of users" class="card mt-3">
     <div class="card-body">
       <h5 class="card-title">
-        <img
-          [src]="user.image"
-          alt="Profile Picture"
-          class="img-thumbnail"
-          width="50"
-        />
+        <img [src]="user.image" alt="Profile Picture" class="img-thumbnail" />
         {{ user.firstName }} {{ user.lastName }}
       </h5>
       <h6 class="card-subtitle mb-2 text-muted">Todos:</h6>

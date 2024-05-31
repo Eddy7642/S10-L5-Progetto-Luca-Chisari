@@ -6,13 +6,15 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { CompletedTodosComponent } from './components/completed-todos/completed-todos.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './pages/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     CompletedTodosComponent,
-    UserListComponent
+    UserListComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
